@@ -1,0 +1,37 @@
+{
+  "name": "NorthwindV4",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/http-client": "^3.26.4",
+    "@sap-cloud-sdk/resilience": "^3",
+    "@sap/cds": "^8",
+    "express": "^4",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.10.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "Northwindv2": {
+        "kind": "odata-v2",
+        "model": "srv/external/Northwindv2",
+        "credentials": {
+          "url": "https://services.odata.org/northwind/northwind.svc/",
+          "requestTimeout": 200000
+        }
+      },
+      "auth": "mocked"
+    }
+  }
+}
