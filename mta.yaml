@@ -26,15 +26,7 @@ modules:
     requires:
       - name: NorthwindV4-destination
       - name: NorthwindV4-auth
-      - name: NorthwindV4-db
 
-  - name: NorthwindV4-db-deployer
-    type: hdb
-    path: db
-    parameters:
-      buildpack: nodejs_buildpack
-    requires:
-      - name: NorthwindV4-db
 resources:
   - name: NorthwindV4-destination
     type: org.cloudfoundry.managed-service
@@ -50,8 +42,4 @@ resources:
       config:
         xsappname: NorthwindV4-${org}-${space}
         tenant-mode: dedicated
-  - name: NorthwindV4-db
-    type: com.sap.xs.hdi-container
-    parameters:
-      service: hana
-      service-plan: hdi-shared
+
